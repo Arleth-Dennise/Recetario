@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "766350336554",
+    "project_id": "recetario-bfaec",
+    "storage_bucket": "recetario-bfaec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766350336554:android:c5039420139cc0f2165953",
+        "android_client_info": {
+          "package_name": "com.example.recetas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZtGzVk9m8xLNSILud3QIrDzGEKT1kCpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
