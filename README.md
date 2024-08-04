@@ -1,4 +1,7 @@
 # Recetario
-#· Arleth Oseguera
-#· Leslye Garcia
-#· Gabriela Ramirez
+· Arleth Oseguera
+
+· Leslye Garcia
+
+· Gabriela Ramirez
+
