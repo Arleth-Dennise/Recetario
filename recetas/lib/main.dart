@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:recetas/configuracion.dart';
+import 'package:recetas/favoritos.dart';
 import 'package:recetas/firebase_options.dart';
 import 'package:recetas/inicio_sesion.dart';
 import 'package:recetas/pagina_principal.dart';
@@ -11,7 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // Verificar si el usuario ya ha iniciado sesión
+
   final user = FirebaseAuth.instance.currentUser;
   Widget _initialRoute;
   if (user!= null) {
@@ -35,9 +37,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: _initialRoute,
       routes: {
-        '/registro': (context) => RegistroPage(),
         '/inicio': (context) => HomePage(),
         '/inicio_sesion': (context) => LoginPage(),
+        '/registro': (context) => RegistroPage(),
+        '/favoritos': (context) => FavoritosPage(),
+        '/configuracion': (context) => ConfiguracionPage(),
       },
     );
   }

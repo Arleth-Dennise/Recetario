@@ -5,12 +5,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
-    String _displayName = user!= null? user.displayName?? '' : '';
+    String _displayName = user != null ? user.displayName ?? '' : '';
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Inicio'),
+        title: Text('Recetas'),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.star),
+            onPressed: () {
+              Navigator.pushNamed(context, '/favoritos');
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.pushNamed(context, '/configuracion');
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -19,14 +38,6 @@ class HomePage extends StatelessWidget {
             Text(
               'Bienvenido, $_displayName',
               style: TextStyle(fontSize: 24),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-                Navigator.pushReplacementNamed(context, '/inicio_sesion');
-              },
-              child: Text('Cerrar sesión'),
             ),
           ],
         ),
