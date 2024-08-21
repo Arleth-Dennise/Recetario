@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         '/registro': (context) => RegistroPage(),
         '/favoritos': (context) => FavoritosPage(),
         '/configuracion': (context) => ConfiguracionPage(),
-        '/desayunos': (context) => DesayunosPage(),
+        '/desayunos': (context) => const DesayunosPage(),
         '/comidas': (context) => ComidasPage(),
         '/postres': (context) => PostresPage(),
       },

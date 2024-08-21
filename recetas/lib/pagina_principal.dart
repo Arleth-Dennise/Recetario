@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Recetas'),
+      
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -57,17 +58,17 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
         },
-        items: const [
+        items:  [
           BottomNavigationBarItem(
-            icon: Icon(Icons.breakfast_dining),
+            icon:Image.asset('assets/images/desayuno.png',width: 50, height: 50),
             label: 'Desayunos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.lunch_dining),
+            icon: Image.asset('assets/images/comida.png',width: 50, height: 50),
             label: 'Comidas',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.cake),
+            icon: Image.asset('assets/images/postre.png',width: 50, height: 50),
             label: 'Postres',
           ),
         ],
