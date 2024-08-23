@@ -1,7 +1,6 @@
 # Recetario
-· Arleth Oseguera
+· Arleth Oseguera - 20212020883
 
-· Leslye Garcia
+· Leslye Janeth Garcia- 20212020467
 
-· Gabriela Ramirez
-
+· Gabriela Abigail Ramirez - 20192000655
