@@ -362,13 +362,14 @@ class _PostresPageState extends State<PostresPage> {
     }
   }
 
-  void _showPostreDetails(BuildContext context, Postre postre) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return Padding(
-          padding: MediaQuery.of(context).viewInsets,
+ void _showPostreDetails(BuildContext context, Postre postre) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -404,10 +405,11 @@ class _PostresPageState extends State<PostresPage> {
               ],
             ),
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
+}
 
   void _showOpciones(BuildContext context, Postre postre) {
     showModalBottomSheet(

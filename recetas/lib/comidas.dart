@@ -364,12 +364,13 @@ class _ComidasPageState extends State<ComidasPage> {
   }
 
   void _showComidaDetails(BuildContext context, Comida comida) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return Padding(
-          padding: MediaQuery.of(context).viewInsets,
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -381,7 +382,7 @@ class _ComidasPageState extends State<ComidasPage> {
                           radius: 80,
                           backgroundImage: NetworkImage(comida.imagenUrl!),
                         )
-                      : const Icon( Icons.fastfood, size: 80),
+                      : const Icon(Icons.fastfood, size: 80),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -405,10 +406,11 @@ class _ComidasPageState extends State<ComidasPage> {
               ],
             ),
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
+}
 
   void _showOpciones(BuildContext context, Comida comida) {
     showModalBottomSheet(

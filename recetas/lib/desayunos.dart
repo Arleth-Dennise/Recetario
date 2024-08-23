@@ -362,12 +362,13 @@ void _searchRecipes() {
   }
 
   void _showDesayunoDetails(BuildContext context, Desayuno desayuno) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return Padding(
-          padding: MediaQuery.of(context).viewInsets,
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -379,7 +380,7 @@ void _searchRecipes() {
                           radius: 80,
                           backgroundImage: NetworkImage(desayuno.imagenUrl!),
                         )
-                      : const Icon(                          Icons.breakfast_dining, size: 80),
+                      : const Icon(Icons.breakfast_dining, size: 80),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -403,10 +404,11 @@ void _searchRecipes() {
               ],
             ),
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
+}
 
   void _showOpciones(BuildContext context, Desayuno desayuno) {
     showModalBottomSheet(
