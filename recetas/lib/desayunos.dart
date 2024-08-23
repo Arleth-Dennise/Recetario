@@ -21,6 +21,7 @@ class _DesayunosPageState extends State<DesayunosPage> {
   final preparacionControlador = TextEditingController();
   final ImagePicker _picker = ImagePicker();
   File? _image;
+  final _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -58,6 +59,14 @@ class _DesayunosPageState extends State<DesayunosPage> {
       appBar: AppBar(
         title: const Text('Desayunos'),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              _showSearchBar();
+            },
+          ),
+        ],
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -109,6 +118,78 @@ class _DesayunosPageState extends State<DesayunosPage> {
       ),
     );
   }
+
+  void _showSearchBar() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  labelText: 'Buscar',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  _searchRecipes();
+                },
+                child: Text('Buscar'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+void _searchRecipes() {
+    final searchQuery = _searchController.text.toLowerCase();
+    final filteredRecipes = desayunos.where((recipe) {
+      return recipe.titulo.toLowerCase().contains(searchQuery) ||
+          recipe.ingredientes.toLowerCase().contains(searchQuery) ||
+          recipe.preparacion.toLowerCase().contains(searchQuery);
+    }).toList();
+    _showSearchResults(filteredRecipes);
+  }
+
+   void _showSearchResults(List<Desayuno> filteredRecipes) {
+  Navigator.pop(context);
+  showDialog(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        child: Container(
+          height: 300, // ajusta el tamaño según sea necesario
+          child: Column(
+            children: [
+              Text('Resultados de busqueda', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: filteredRecipes.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(filteredRecipes[index].titulo),
+                      onTap: () {
+                        _showDesayunoDetails(context, filteredRecipes[index]);
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
 
   void _showMenu(BuildContext context) {
     showModalBottomSheet(

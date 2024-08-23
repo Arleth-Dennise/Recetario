@@ -32,11 +32,6 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-            },
-          ),
-          IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
               Navigator.pushNamed(context, '/configuracion');
